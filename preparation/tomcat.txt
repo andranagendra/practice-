@@ -1,0 +1,106 @@
+TO download tomcat from login as: ec2-user
+Authenticating with public key "imported-openssh-key"
+Last login: Thu Aug  3 09:29:06 2017 from 183.82.182.175
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/
+1 package(s) needed for security, out of 3 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-24-190 ~]$ sudo -i
+[root@ip-172-31-24-190 ~]# cd tomcat/
+[root@ip-172-31-24-190 tomcat]# cd bin
+-bash: cd: bin: No such file or directory
+[root@ip-172-31-24-190 tomcat]# ls
+apache-tomcat-8.0.45  apache-tomcat-8.0.45.zip
+[root@ip-172-31-24-190 tomcat]# cd apache-tomcat-8.0.45
+[root@ip-172-31-24-190 apache-tomcat-8.0.45]# ls
+bin   lib      logs    RELEASE-NOTES  temp     work
+conf  LICENSE  NOTICE  RUNNING.txt    webapps
+[root@ip-172-31-24-190 apache-tomcat-8.0.45]# cd bin/
+[root@ip-172-31-24-190 bin]# ls
+bootstrap.jar                 daemon.sh         startup.sh
+catalina.bat                  digest.bat        tomcat-juli.jar
+catalina.sh                   digest.sh         tomcat-native.tar.gz
+catalina-tasks.xml            setclasspath.bat  tool-wrapper.bat
+commons-daemon.jar            setclasspath.sh   tool-wrapper.sh
+commons-daemon-native.tar.gz  shutdown.bat      version.bat
+configtest.bat                shutdown.sh       version.sh
+configtest.sh                 startup.bat
+[root@ip-172-31-24-190 bin]# cd ..
+[root@ip-172-31-24-190 apache-tomcat-8.0.45]# ls
+bin  conf  lib  LICENSE  logs  NOTICE  RELEASE-NOTES  RUNNING.txt  temp  webapps  work
+[root@ip-172-31-24-190 apache-tomcat-8.0.45]# cd conf/
+[root@ip-172-31-24-190 conf]# ls
+Catalina  catalina.policy  catalina.properties  context.xml  logging.properties  server.xml  tomcat-users.xml  tomcat-users.xsd  web.xml
+[root@ip-172-31-24-190 conf]# vi tomcat-users.x
+[root@ip-172-31-24-190 conf]# vi tomcat-users.xml
+[root@ip-172-31-24-190 conf]# cd ../bin/./startup.
+-bash: cd: ../bin/./startup.: No such file or directory
+[root@ip-172-31-24-190 conf]# cd ..
+[root@ip-172-31-24-190 apache-tomcat-8.0.45]# cd bin/
+[root@ip-172-31-24-190 bin]# ./startup.sh
+Using CATALINA_BASE:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_HOME:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_TMPDIR: /root/tomcat/apache-tomcat-8.0.45/temp
+Using JRE_HOME:        /usr/lib/jvm/jre
+Using CLASSPATH:       /root/tomcat/apache-tomcat-8.0.45/bin/bootstrap.jar:/root/tomcat/apache-tomcat-8.0.45/bin/tomcat-juli.jar
+Tomcat started.
+[root@ip-172-31-24-190 bin]# ./startup.sh stop
+Using CATALINA_BASE:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_HOME:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_TMPDIR: /root/tomcat/apache-tomcat-8.0.45/temp
+Using JRE_HOME:        /usr/lib/jvm/jre
+Using CLASSPATH:       /root/tomcat/apache-tomcat-8.0.45/bin/bootstrap.jar:/root/tomcat/apache-tomcat-8.0.45/bin/tomcat-juli.jar
+Tomcat started.
+[root@ip-172-31-24-190 bin]# ./shutdown.sh
+Using CATALINA_BASE:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_HOME:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_TMPDIR: /root/tomcat/apache-tomcat-8.0.45/temp
+Using JRE_HOME:        /usr/lib/jvm/jre
+Using CLASSPATH:       /root/tomcat/apache-tomcat-8.0.45/bin/bootstrap.jar:/root/tomcat/apache-tomcat-8.0.45/bin/tomcat-juli.jar
+[root@ip-172-31-24-190 bin]# ./startup.sh
+Using CATALINA_BASE:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_HOME:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_TMPDIR: /root/tomcat/apache-tomcat-8.0.45/temp
+Using JRE_HOME:        /usr/lib/jvm/jre
+Using CLASSPATH:       /root/tomcat/apache-tomcat-8.0.45/bin/bootstrap.jar:/root/tomcat/apache-tomcat-8.0.45/bin/tomcat-juli.jar
+Tomcat started.
+[root@ip-172-31-24-190 bin]# cd ..
+[root@ip-172-31-24-190 apache-tomcat-8.0.45]# cd conf/
+[root@ip-172-31-24-190 conf]# ls
+Catalina  catalina.policy  catalina.properties  context.xml  logging.properties  server.xml  tomcat-users.xml  tomcat-users.xsd  web.xml
+[root@ip-172-31-24-190 conf]# vi tomcat-users.xml
+[root@ip-172-31-24-190 conf]# cd ../bin/
+[root@ip-172-31-24-190 bin]# ./startup.sh
+Using CATALINA_BASE:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_HOME:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_TMPDIR: /root/tomcat/apache-tomcat-8.0.45/temp
+Using JRE_HOME:        /usr/lib/jvm/jre
+Using CLASSPATH:       /root/tomcat/apache-tomcat-8.0.45/bin/bootstrap.jar:/root/tomcat/apache-tomcat-8.0.45/bin/tomcat-juli.jar
+Tomcat started.
+[root@ip-172-31-24-190 bin]# ./shutdown.sh
+Using CATALINA_BASE:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_HOME:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_TMPDIR: /root/tomcat/apache-tomcat-8.0.45/temp
+Using JRE_HOME:        /usr/lib/jvm/jre
+Using CLASSPATH:       /root/tomcat/apache-tomcat-8.0.45/bin/bootstrap.jar:/root/tomcat/apache-tomcat-8.0.45/bin/tomcat-juli.jar
+[root@ip-172-31-24-190 bin]# ./startup.sh
+Using CATALINA_BASE:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_HOME:   /root/tomcat/apache-tomcat-8.0.45
+Using CATALINA_TMPDIR: /root/tomcat/apache-tomcat-8.0.45/temp
+Using JRE_HOME:        /usr/lib/jvm/jre
+Using CLASSPATH:       /root/tomcat/apache-tomcat-8.0.45/bin/bootstrap.jar:/root/tomcat/apache-tomcat-8.0.45/bin/tomcat-juli.jar
+Tomcat started.
+
+
+tomcat user.xml file edit:
+<role rolename="manager-gui"/>    
+<role rolename="manager-script"/>    
+<role rolename="manager-jmx"/>    
+<role rolename="manager-status"/>    
+<role rolename="admin"/>    
+<user username="admin" password="admin" roles="admin,manager-gui,
+manager-script,manager-jmx,manager-status"/>

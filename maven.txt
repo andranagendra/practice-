@@ -1,0 +1,11 @@
+export PATH=${M2_HOME}/bin:${PATH}
+[root@ip-172-31-29-34 apache-maven-3.3.9]# export M2_HOME=/opt/apache-maven-3.3.9
+[root@ip-172-31-29-34 apache-maven-3.3.9]# export PATH=${M2_HOME}/bin:${PATH}
+
+
+export JAVA_HOME=/opt/jdk1.8.0_131/
+[root@ip-172-31-29-34 jdk1.8.0_131]# export JAVA_JRE=/opt/jdk1.8.0_131/jre/
+
+https://www.sonarqube.org/#downloads
+
+https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.5.zip

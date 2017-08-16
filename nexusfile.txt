@@ -1,0 +1,117 @@
+#tomcat
+
+wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-7/v7.0.79/bin/apache-tomcat-7.0.79.zip
+
+to unzip tomacat zip file:
+ unzip apache-tomcat-7.0.79.zip
+cd apache-tomcat-7.0.79
+cd conf
+
+vi tomcatuser.xml
+
+<role rolename="manager-gui"/>    
+<role rolename="manager-script"/>    
+<role rolename="manager-jmx"/>    
+<role rolename="manager-status"/>    
+<role rolename="admin"/>    
+<user username="admin" password="admin" roles="admin,manager-gui,
+manager-script,manager-jmx,manager-status"/>
+
+now we are moving bin dir
+
+cd bin
+chmod +x *.sh
+
+now we run tomcat by using bellow command:
+
+./startup.sh
+
+
+go to browser type:https:// ip or localhost:8080
+
+now we are login to tomcat:
+
+if we want to change tomcat server port number we follw bellow processor:
+
+step 1: first we got to conf directory:
+
+cd conf
+
+now we are open server.xml file
+
+vi conf /server.xml 
+
+:Connector port
+
+we open server.xml file and add new port:9090
+
+<Connector port="9090" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443" />
+
+next we restart the tomcat server:
+
+cd ../bin/
+
+./shutdown.sh << to shutdown tomcat server >>
+
+now we are again re-start the tomcat server: 
+ 
+
+ed
+Simple !!... you can do it easily via server.xml
+
+
+note:
+
+Goto tomcat>conf folder
+Edit server.xml
+Search "Connector port"
+Replace "8080" by your port number
+Restart tomcat server.
+You are done!.
+
+
+to jenkins on Tomcat server:
+
+fisrt download  jenkins.war file and place to the inside of the webapps directory:
+
+wget http://mirrors.jenkins.io/war/latest/jenkins.war
+
+
+mv jenkins.war apache-tomcat-7.0.79/webapps/
+
+
+cd webapps:
+
+jenkins.war
+
+now we are restart the tomcat server then jenkns also defaultly run :
+
+nexus:
+
+sudo yum update -y
+
+sudo yum install java-1.8.0-openjdk.x86_64
+
+
+ wget http://download.sonatype.com/nexus/oss/nexus-2.11.2-06-bundle.tar.gz
+sudo mkdir /app 
+
+ cd /app
+
+tar -xvzf nexus-2.11.2-06-bundle.tar.gz
+
+sudo mv nexus-3.0.2-02 nexus
+mv nexus app
+
+now we create new user:
+
+sudo adduser nexus
+
+to give the permisions:
+
+ sudo chown -R nexus:nexus app/nexus
+
+sudo ln -s /app/nexus/bin/nexus /etc/init.d/nexus
+

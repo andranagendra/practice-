@@ -1,0 +1,60 @@
+﻿[root@ip-172-31-19-79 jenkins]# mv * /root/jenkins
+[root@ip-172-31-19-79 jenkins]# cd ..
+[root@ip-172-31-19-79 lib]# d ..
+-bash: d: command not found
+[root@ip-172-31-19-79 lib]# cd ..
+[root@ip-172-31-19-79 var]# cd ..
+[root@ip-172-31-19-79 /]# ls
+bin  boot  cgroup  dev  etc  home  jenkins  jenkinshome  lib  lib64  local  lost+found  media  mnt  opt  proc  root  run  sbin  selinux  srv  sys  tmp  usr  var
+[root@ip-172-31-19-79 /]# ls
+bin  boot  cgroup  dev  etc  home  jenkins  jenkinshome  lib  lib64  local  lost+found  media  mnt  opt  proc  root  run  sbin  selinux  srv  sys  tmp  usr  var
+[root@ip-172-31-19-79 /]# cd root/
+[root@ip-172-31-19-79 ~]# ls
+filee  git  jenkins
+[root@ip-172-31-19-79 ~]# cd jenkins/
+[root@ip-172-31-19-79 jenkins]# ls
+config.xml                                          identity.key.enc                             jobs              plugins                   secrets      workflow-libs
+hudson.model.UpdateCenter.xml                       jenkins.CLI.xml                              logs              queue.xml.bak             updates      workspace
+hudson.plugins.emailext.ExtendedEmailPublisher.xml  jenkins.install.InstallUtil.lastExecVersion  nodeMonitors.xml  secret.key                userContent
+hudson.plugins.git.GitTool.xml                      jenkins.install.UpgradeWizard.state          nodes             secret.key.not-so-secret  users
+[root@ip-172-31-19-79 jenkins]# cd ..
+[root@ip-172-31-19-79 ~]# export JENKINS_HOME=/root/jenkins/
+[root@ip-172-31-19-79 ~]#
+
+
+
+to change port number:
+
+Change default port of Jenkins on CentOS
+
+The Jenkins project provides a rpm installation repository for CentOS which installs Jenkins with some changed locations for configuration files.
+
+If you want to change the default port for Jenkins you need to change the file /etc/sysconfig/jenkins
+
+JENKINS_PORT=”8080″
+
+
+solution 1:
+
+sudo service jenkins stop
+sudo mv /var/lib/jenkins /home
+sudo ln -s /home/jenkins /var/lib/jenkins
+sudo service jenkins start
+
+solution:
+
+sudo service jenkins stop
+sudo mv /var/lib/jenkins /home
+sudo ln -s /home/jenkins /var/lib/jenkins
+sudo service jenkins start
+ 
+TO set the enviranment varible on linux machines:
+ tempararoy path set up:
+
+expoert JENKINS_HOEM= you have to mention new path of the jenkins files
+
+vi /etc/.bash_profile
+
+export JENKINS_HOME= Give the new path
+
+ 

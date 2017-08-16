@@ -1,0 +1,101 @@
+First download nexus from offical site:
+
+cd  /usr/local << we move to this loaction >>
+
+<< we download nexus package by using bellow command >>
+ 
+wget https://sonatype-download.global.ssl.fastly.net/nexus/oss/nexus-2.11.3-01-bundle.tar.gz
+ 
+<< now we get tar file  in current location >>
+
+Next step :
+
+ tar xvzf nexus-2.11.3-01-bundle.tar.gz << To un tar the given  file >>
+
+ln  -s nexus-2.11.3-01/nexus << to create link for nexus >>
+
+<<   Now we are set the perminent path for nexus  >>
+
+vi /etc/profile: << To add enviranmental varibles and path here  >>
+
+export NEXUS_PLATFORM=linux_x86_64
+export NEXUS_HOME=/usr/local/nexus-2.11.3-01
+export NEXUS_EXEC=$NEXUS_HOME/usr/local/nexus-2.11.3-01/bin/jsw/$NEXUS_PLATFORM
+export PATH=$NEXUS_EXEC:$PATH
+
+
+<<now we are moving to nexus unzip directory>>
+
+cd nexus-2.11.3-01 << we came to nexus inside >>
+
+<<now we move to bin directory>>
+cd bin 
+cd ls
+<<<  now we are edit the nexus file add to four things here >>>
+
+vi nexus << now To edit this file >>
+
+APP_NAME="nexus"
+
+APP_LONG_NAME="Sonatype Nexus Repository Manager"
+
+RUN_AS_USER=root
+
+PIDDIR="/var/run"
+
+<<<  now we are creating second home >>>
+
+cp $NEXUS_EXEC/usr/local/nexus-2.11.3-01/bin/nexus /etc/init.d/nexus
+
+chmod 755 /etc/init.d/nexus
+
+cd bin
+
+now were are run the nexus server  by using bellow command:
+
+./nexus start << nexus default port number is 8081 and latest version 3.1 >>
+
+MAVEN:
+
+
+cd /opt/apache-maven-3.3.9/conf
+
+
+vi settings.xml   <<To add the this code vi settings.xml>>
+
+ <server>
+      <id>5179</id>
+      <username>admin</username>
+      <password>admin123</password>
+  </server>
+  <server>
+      <id>snapshots</id>
+      <username>admin</username>
+      <password>admin123</password>
+  </server>
+
+vi pom.xml
+
+<<<< To add below code at maven pom.xml :>>>>
+
+ <distributionManagement>
+   
+		<repository>
+			
+		
+			<id>releases</id>
+		
+			<name>Releases</name>
+   
+ 
+			<url>http://184.73.10.52:8081/nexus/content/repositories/ </url>
+
+
+		 </repository>
+          
+    </snapshotRepository>
+    
+</distributionManagement>
+</project>
+
+:wq!

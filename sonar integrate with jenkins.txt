@@ -1,0 +1,65 @@
+1  ls
+    2  yum update -y
+    3  yum install git
+    4  ls
+    5  git clone https://github.com/andranagendra/filee.git
+    6  ls
+    7  cd filee/
+    8  ls
+    9  cat script1.sh
+   10  cd ..
+   11  cp -R filee/script1.sh .
+   12  ls
+   13  nano script1.sh
+   14  ./script1.sh
+   15  java -version
+   16  cd /opt/
+   17  ls
+   18  cd apache-maven-3.3.9
+   19  ls
+   20  pwd
+   21  export M2_HOME=/opt/apache-maven-3.3.9
+   22  export PATH={M2_HOME}/bin:{PATH}
+   23  mvn version
+   24  mvn -version
+   25  echo $JAVA_HOME
+   26  cat /root/script1.sh
+   27  PATH=/usr/bin:/bin/usr/sbin:/sbin
+   28  cat /root/script1.sh
+   29  ls
+   30  PATH=/usr/bin:/bin:/usr/sbin:/sbin
+   31  cat /root/script1.sh
+   32  export PATH=${M2_HOME}/bin:${PATH}
+   33  export M2_HOME=/opt/apache-maven-3.3.9
+   34  export PATH=${M2_HOME}/bin:${PATH}
+   35  ls
+   36  mvn -version
+   37  ccd ..
+   38  cd ..
+   39  cd jdk1.8.0_131/
+   40  ls
+   41  pwd
+   42  export JAVA_HOME=/opt/jdk1.8.0_131/
+   43  export JRE_HOME=/opt/jdk1.8.0_131/jre
+   44  ls
+   45  cd ..
+   46  ls
+   47  cd mvn -version
+   48   mvn -version
+   49  cd /opt/
+   50  wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.5.zip
+   51  ls
+   52  rm -rf jdk-8u131-linux-x64.tar.gz
+   53  git init
+   54  git remote add jai https://github.com/andranagendra/java-and-maven-sonar-code.git
+   55  git pull https://github.com/andranagendra/java-and-maven-sonar-code.git
+   56  ls
+   57  git push jai master
+   58  git add .
+   59  git commit -m "add some software"
+   60  ls
+   61  uzip sonarqube-6.5.zip
+   62  unzip sonarqube-6.5.zip   <<sonar qube default port number is 9000>>
+   63  ls
+   64  cd sonarqube-6.5
+   65  ls

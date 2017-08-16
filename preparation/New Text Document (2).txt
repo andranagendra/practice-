@@ -1,0 +1,41 @@
+[root@agent1 ~]# puppet -version
+warning: Implicit invocation of 'puppet apply' by passing files (or flags) directly
+to 'puppet' is deprecated, and will be removed in the 2.8 series.  Please
+invoke 'puppet apply' directly in the future.
+error 2:
+sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+puppet --version
+
+to install puppet server 
+
+ yum install puppet-server
+
+error on server:
+[root@server puppet]# puppet cert list all
+err: Could not call list: Could not find a certificate for all
+server:
+puppet cert list --all
+error:
+
+err: Could not call sign: Could not find certificate request for agent1.com
+Could not find certificate request for agent1.com
+[root@server puppet]# vi /etc/hosts
+[root@server puppet]# puppet cert sign agent1
+err: Could not call sign: Could not find certificate request for agent1
+Could not find certificate request for agent1
+[root@server puppet]# puppet cert sign agent2.com
+err: Could not call sign: Could not find certificate request for agent2.com
+Could not find certificate request for agent2.com
+
+encript command:
+sys
+ openssl passwd -1 -salt pass(username) <<password name>>
+
+data bage code:
+
+on chef-server
+{
+"password": "$1$pass$1K/wwgbgGDqTdxG.EHS8F1",
+"uid": "701"
+
+}

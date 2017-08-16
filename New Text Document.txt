@@ -1,0 +1,73 @@
+http://docs.ansible.com/ansible/latest/intro_installation.html --ansible website for learning
+
+https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-14-04 ( ubuntu  second url for anisble)
+
+If you are wishing to run the latest released version of Ansible and you are running Red Hat Enterprise Linux (TM), CentOS, Fedora, Debian, or Ubuntu, we recommend using the OS package manager.
+
+
+ansible requirements:
+
+To install ansible pakcage on ansible server and along python (2.7 and above) ansible latest version(2.4)
+
+yum install git 
+
+yum install python 
+
+step 1:
+ you have to install git 
+
+===>  yum install git
+<<<<<we heve  install bellow steps:>>>>>
+step 2:
+yum install rpm-build (To install rpm-build package)
+
+step 3:
+
+yum install make  (we install make package)
+
+git clone git://github.com/ansible/ansible.git
+ 
+to create .ansible directory:
+
+cd ./ansible:
+
+make  rpm 
+
+yum update
+
+ 
+ yum install rpm-build
+yum install python2-setuptools
+
+yum install make
+yum install asciidoc
+
+make rpm
+
+
+ yum update
+
+next step :
+
+rpm -Uvh ./rpm-build/ansible-*.noarch.rpm
+
+yum install ansible
+
+ sudo easy_install pip
+
+pip install ansible
+'pip install --upgrade pip
+centos 7:
+
+sudo yum install epel-release
+
+sudo yum install ansible
+
+
+ansible install on ubuntu:
+
+$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo apt-add-repository ppa:ansible/ansible
+$ sudo apt-get update
+$ sudo apt-get install ansible

@@ -1,0 +1,63 @@
+export JRE_HOME=/opt/jdk1.8.0_131/jre
+export JAVA_HOME=/opt/jdk1.8.0_131
+
+puppet:
+
+master:
+
+step 1:
+
+vi /etc/sysconfig/network
+
+<<<  you have to give here hostname  >>>
+
+step 2:
+
+
+vi /etc/hosts
+
+34.203.14.237  server.com puppetserver
+107.23.164.100 agent1.com agent1
+34.229.80.72  agent2.ccom agent2
+
+step 3:
+ To create puppet repository:
+
+
+sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+
+step 4:
+
+yum install puppet-server
+
+
+puppet --version
+
+
+# cd /etc/puppet/
+
+
+<<<< agent 1:  >>>
+
+ step 1:
+
+vi /etc/sysconfig/network
+
+<<<  now we are add host name here >>>
+
+step 2:
+
+vi /etc/hosts
+
+34.203.14.237  server.com puppetserver
+107.23.164.100 agent1.com agent1
+34.229.80.72  agent2.ccom agent2
+
+step 3:
+ <
+sudo rpm -ivh https://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
+ 
+yum install puppet << to install agent package >>
+
+puppet --version << to check the version >>
+

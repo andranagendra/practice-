@@ -1,0 +1,347 @@
+﻿
+Download jenkins package form jenkins offical site:
+
+
+<<<<<<<>>>>>>> www.jenkins.io.com <<<<<<>>>>>
+
+jenkns are types of versions 
+
+stabled release and weekly release
+
+
+
+jenkins are install two ways war fiel formate and rpm 
+
+
+
+
+
+
+
+To download java 8:
+cd /opt/
+#wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz"
+
+tar xzvf pkage of java
+
+
+tar xzf jdk-8u131-linux-i586.tar.gz
+
+
+cd /opt/jdk1.8.0_131/bin
+
+   alternatives --install /usr/bin/java java /opt/jdk1.8.0_131/bin/java 2
+    alternatives --config java
+    alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_131/bin/jar 2
+  alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_131/bin/javac 2
+    alternatives --set jar /opt/jdk1.8.0_131/bin/jar
+   alternatives --set javac /opt/jdk1.8.0_131/bin/javac
+ java -version
+
+#perminent java path set up:
+#vi /etc/enviranment 
+   export JRE_HOME=/opt/jdk1.8.0_131/jre
+   export JAVA_HOME=/opt/jdk1.8.0_131
+   export PATH=$PATH:/opt/jdk1.8.0_131/bin:/opt/jdk1.8.0_131/jre/bin
+
+jenkins:
+
+to setup jenkins repository:
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+to generate jenkins key:
+
+
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+
+
+yum install update
+
+
+To download  and install jenkins: on centos and redhat and suse linux fedora linux:
+
+yum install jenkins
+
+
+to check package install or not:
+
+rpm -qa jenkins
+
+to start jenkkins service  by using below command:
+  
+service jenkins status
+
+service jenkins start
+
+
+to check jekinsrepositroy create or not :
+
+vi /etc/
+ifconfig
+
+service httpd status
+service httpd start
+
+browser :192.168.238.129:8080
+
+to copy admin key:    19Y4NSiG8kkzwWjMD17euEaQ5PErpwxWkP 
+on terminal:
+cat /var/lib/jenkins/secrets/initialAdminPassword
+19Y4NSiG8kkzwWjMD17euEaQ5PErpwxWkP 
+
+next step:
+
+select install all plugins:
+
+ls /etc/yum.repos.d/
+
+CentOS-Base.repo  CentOS-Debuginfo.repo  CentOS-fasttrack.repo  CentOS-Media.repo  CentOS-Vault.repo  jenkins.repo
+
+ls /var/lib/jenkins/
+config.xml                      jenkins.CLI.xml                              logs              secret.key                userContent
+hudson.model.UpdateCenter.xml   jenkins.install.InstallUtil.lastExecVersion  nodeMonitors.xml  secret.key.not-so-secret  users
+hudson.plugins.git.GitTool.xml  jenkins.install.UpgradeWizard.state          nodes             secrets                   workflow-libs
+identity.key.enc                jobs   
+
+jenkins.
+
+to install git on jenkins server:
+
+yum install git-all
+to create a local repository by using be
+
+git --version
+
+
+git init
+
+git add .
+git a
+
+
+maven 
+java -version
+cd /opt/
+
+wget http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+
+unzip apache-maven-3.5.0-bin
+
+cd apache-maven-3.5.0-bin
+
+ln -s apache-maven-3.3.9 maven
+vi /etc/profile.d/maven.sh
+export M2_HOME=/opt/apache-maven-3.3.9
+
+export PATH=${M2_HOME}/bin:${PATH}
+
+source /etc/profile.d/maven.sh
+
+
+mvn -version
+
+
+Maven home: /opt/apache-maven-3.3.9
+Java version: 1.8.0_131, vendor: Oracle Corporation
+Java home: /opt/jdk1.8.0_131/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "2.6.32-642.el6.x86_64", arch: "amd64", family: "unix"
+
+
+ mvn acrhetype::generate
+
+you have to follow below steps
+
+give groupid: 
+     artifactid:
+     vesion id:
+     package:
+   ::y
+
+cd healthprject:
+
+pom.xml src 
+
+tree:
+
+.
+├── pom.xml
+└── src
+    ├── main
+    │   └── java
+    │       └── org
+    │           └── kelly
+    │               └── healthproject
+    │                   └── App.java
+    └── test
+        └── java
+            └── org
+                └── kelly
+                    └── healthproject
+                        └── AppTest.java
+
+pom.xml :
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.kelly.healthproject</groupId>
+  <artifactId>healthproject</artifactId>
+  <version>1.1.1</version>
+  <packaging>jar</packaging>
+
+  <name>healthproject</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
+
+src:
+
+main test
+
+main :
+
+
+mvn complie ----->  to complie java source code and create .class file in side of  target directory 
+
+mvn test commpile
+
+after compilation target file will  create
+
+pom.xml src target
+
+target:
+
+here test. and java. class files will create
+
+test.class and appjava.class
+
+
+practice :
+
+[root@localhost healthproject]# ls
+pom.xml  src  target
+[root@localhost healthproject]# cd target/
+[root@localhost target]# ls
+classes  maven-status  surefire-reports  test-classes
+[root@localhost target]# cd classes/
+[root@localhost classes]# ls
+org
+[root@localhost classes]# tree
+.
+└── org
+    └── kelly
+        └── healthproject
+            └── App.class
+
+3 directories, 1 file
+
+after compilation below directiries created at target dir:
+
+classes  maven-status  surefire├── surefire-reports
+│   ├── org.kelly.healthproject.AppTest.txt
+│   └── TEST-org.kelly.healthproject.AppTest.xml
+└── test-classes
+    └── org
+        └── kelly
+            └── healthproject
+                └── AppTest.class
+-reports  test-classes
+classes:
+
+├── classes
+│   └── org
+│       └── kelly
+│           └── healthproject
+│               └── App.class
+
+
+class files are present
+
+mava-status:
+to discribe mave complier plugin history store
+
+
+├── maven-status
+│   └── maven-compiler-plugin
+│       ├── compile
+│       │   └── default-compile
+│       │       ├── createdFiles.lst
+│       │       └── inputFiles.lst
+│       └── testCompile
+│           └── default-testCompile
+│               ├── createdFiles.lst
+│               └── inputFiles.lst
+
+
+
+surefire-reports:
+ 
+
+── surefire-reports
+│   ├── org.kelly.healthproject.AppTest.txt
+│   └── TEST-org.kelly.healthproject.AppTest.xml
+
+
+
+test-classes:
+
+here test class files are presnet
+
+
+└── test-classes
+    └── org
+        └── kelly
+            └── healthproject
+                └── AppTest.class
+
+
+
+error :
+
+i  have run mvn package command outside of pom.xml lactiom:
+ 
+[root@localhost target]# mvn package
+
+
+
+mvn package is created war and jar and files at target directory;
+
+
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 0.181 s
+[INFO] Finished at: 2017-07-05T02:43:05-07:00
+[INFO] Final Memory: 9M/53M
+[INFO] ------------------------------------------------------------------------
+[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (/opt/apache-maven-3.3.9/healthproject/target). Please verify you invoked Maven from the correct directory. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MissingProjectException
+
+
+
+jekins:
+
+
+jenkins url :http://192.168.238.129:8080/github-webhook/
+
